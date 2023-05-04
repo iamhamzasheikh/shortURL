@@ -1,18 +1,21 @@
 import React from 'react'
-import Navbar from './Navbar'
+import "../Assests/URLShort.css"
 
 function URLShort() {
   return (
     <>
-    <Navbar/>
+      <div className="heading-para">
+        <h1>Your Shortened URL</h1>
+        <p >Copy the shortened link and share it in messages, texts, posts, websites and other locations.</p>
+      </div>
 
-    <div className="heading1">
-      <h1>Your shortened URL</h1>
-      <p>Copy the shortened link and share it in messages, texts, posts, websites and other locations.</p>
-    </div>
+      <div className="container">
+        <div className="card">
 
+        </div>
+      </div>
     </>
   )
 }
 
-export default URLShort
+export default URLShort;
