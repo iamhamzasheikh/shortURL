@@ -51,15 +51,17 @@
 
 .btn {
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
-.btn-2{
+/* .btn-2{
     display: flex;
     justify-content: center;
     padding: 12px 0;
-}
+    background-color: rgb(57, 94, 57);
+} */
 
-.message {
+/* .message {
     width: 50%;
     margin: 0 auto;
 }
@@ -76,12 +78,4 @@
 .displayShortURL>input:focus{
     outline: none;
 }
-
-/* @media only screen and (min-width: 200px) and (max-width: 767px) {
-    .container{
-        width: 30%;
-    }
-    .card{
-        width: auto;
-    }
-} */
+ */

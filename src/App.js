@@ -1,19 +1,22 @@
 import './App.css';
 import Navbar from './Components/Navbar';
-import URLCard from './Components/URLCard';
+import InputShorten from './Components/InputShorten';
 import { Routes, Route } from 'react-router-dom';
-import URLShort from './Components/URLShort';
-
-
+import LinkResult from './Components/LinkResult';
+import { useState } from 'react';
 
 function App() {
+  const [inputValue, setInputValue] = useState("");
+
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/URLShorten" element={<URLShort />}></Route>
-        <Route path='/' element={<URLCard />}></Route>
-      </Routes>
+      <div className="container">
+        <Routes>
+          <Route path='/' element={<InputShorten setInputValue={setInputValue} />}></Route>
+          <Route path='/LinkResult' element={<LinkResult inputValue={inputValue} />} ></Route>
+        </Routes>
+      </div>
 
     </>
   );

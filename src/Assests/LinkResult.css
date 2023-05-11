@@ -1,0 +1,48 @@
+.heading-para {
+    color: #505050;
+    letter-spacing: -1px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.result {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.result p {
+    width: 300px;
+    border-left: 1px solid #505050;
+    border-top: 1px solid #505050;
+    border-bottom: 1px solid #505050;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 0.7rem 1rem;
+    margin: 0;
+}
+
+.result input {
+    padding: 0.8rem 1rem;
+    color: white;
+    font-weight: 500;
+    font-size: large;
+    background-color: #0275d8;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.result input:hover {
+    opacity: 0.9;
+}
+
+.result input.copiedClip {
+    background-color: #017c43;
+}
+.noData{
+    font-size: 2rem;
+}
