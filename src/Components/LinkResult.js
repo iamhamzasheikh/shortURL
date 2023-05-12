@@ -12,24 +12,24 @@ function LinkResult({ inputValue }) {
     const [error, setError] = useState(false);
 
 
+    const fetchData = async () => {
+        try {
+            setLoading(true);
+            const response = await axios(`https://api.shrtco.de/v2/shorten?url=${inputValue}`);
+            setShortenLink(response.data.result.full_short_link);
+            setError(null);
+        } catch (err) {
+            setError(err);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                setLoading(true);
-                const response = await axios(`https://api.shrtco.de/v2/shorten?url=${inputValue}`);
-                setShortenLink(response.data.result.full_short_link);
-                setError(false);
-            } catch (err) {
-                setError(true);
-            } finally {
-                setLoading(false);
-            }
-        };
-        if (inputValue.length>0) {
+        if (inputValue.length > 0) {
             fetchData();
         }
-    }, [inputValue] );
-
+    }, [inputValue]);
     useEffect(() => {
         const timer = setTimeout(() => {
             setCopied(false)
@@ -39,24 +39,32 @@ function LinkResult({ inputValue }) {
     }, [copied])
 
     if (loading) {
-        return <p className='noData'>Loading...</p>
+        return <p style={{textAlign:'center'}} className='noData'>Loading...</p>
     }
     if (error) {
-        return <p className='noData'>Something went wrong: {error.message}</p>;
+        return <p style={{textAlign:'center'}} className='noData'>Something went wrong: {error.message}</p>;
 
     }
     return (
         <>
+            <div className="heading-para">
+                <h1 >Your shortened URL</h1>
+                <p>Copy the shortened link and share it in messages, texts, posts, websites and other locations.</p>
+            </div>
             {shortenLink && (
-                <div className="result">
-                    <p>{shortenLink}</p>
-                    <CopyToClipboard text={shortenLink}
-                        onCopy={() => setCopied(true)}
-                    >
-                        <input type="button" className={copied ? "copiedClip" : ""}
-                            value={copied ? "Copied" : "Copy URL"} />
-                    </CopyToClipboard>
+                <div className="container">
+                    <div className="card">
+                        <div className="result">
+                            <p>{shortenLink}</p>
+                            <CopyToClipboard text={shortenLink}
+                                onCopy={() => setCopied(true)}>
+                                <input type="button" className={copied ? "copiedClip" : ""}
+                                    value="Copy URL" />
+                            </CopyToClipboard>
+                        </div>
+                    </div>
                 </div>
+
             )}
         </>
     )

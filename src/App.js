@@ -4,6 +4,7 @@ import InputShorten from './Components/InputShorten';
 import { Routes, Route } from 'react-router-dom';
 import LinkResult from './Components/LinkResult';
 import { useState } from 'react';
+import Footer from './Components/Footer';
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -11,13 +12,11 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container">
-        <Routes>
-          <Route path='/' element={<InputShorten setInputValue={setInputValue} />}></Route>
-          <Route path='/LinkResult' element={<LinkResult inputValue={inputValue} />} ></Route>
-        </Routes>
-      </div>
-
+      <Routes>
+        <Route path='/' element={<InputShorten setInputValue={setInputValue} />}></Route>
+        <Route path='/LinkResult' element={<LinkResult inputValue={inputValue} />} ></Route>
+      </Routes>
+      <Footer />
     </>
   );
 }

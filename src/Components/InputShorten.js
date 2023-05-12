@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import "../Assests/URLCard.css"
 import { useNavigate } from 'react-router-dom'
 
-
 function InputShorten({ setInputValue }) {
     const [value, setValue] = useState()
     const navigate = useNavigate();
